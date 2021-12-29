@@ -8,7 +8,19 @@ import House from '../components/House';
 export default function Home() {
   return (
     <div>
-      <h2>Places to Comfort</h2>
+      <h2
+        style={{
+          backgroundColor: '#061d33ba',
+          padding: '1.5rem',
+          borderRadius: '.76rem',
+          textAlign: 'center',
+          fontSize: '2rem',
+          boxShadow: '0px 5px 5px rgba(0,0,0,0.4)',
+          color: '#d4cae2d1'
+        }}
+      >
+        Places to Stay, For Your Comfort
+      </h2>
       <div className="houses">
         {houses.map((house, index) => {
           return <House key={index} {...house} />;
