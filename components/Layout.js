@@ -1,28 +1,22 @@
-import houses from '../houses.js';
-import House from '../components/House';
-import Layout from '../components/Layout';
+import Header from './Header';
 
-const content = (
-  <div>
-    <h2>Places to stay</h2>
-
-    <div className="houses">
-      {houses.map((house, index) => {
-        return <House key={index} {...house} />;
-      })}
+export default function Layout(props) {
+  return (
+    <div>
+      <Header />
+      <main>{props.content}</main>
+      <style jsx>
+        {`
+          main {
+            position: relative;
+            max-width: 56em;
+            background-color: white;
+            padding: 2em;
+            margin: 0 auto;
+            box-sizing: border-box;
+          }
+        `}
+      </style>
     </div>
-
-    <style jsx>{`
-      .houses {
-        display: grid;
-        grid-template-columns: 49% 49%;
-        grid-template-rows: 300px 300px;
-        grid-gap: 2%;
-      }
-    `}</style>
-  </div>
-);
-
-export default function Home() {
-  return <Layout content={content} />;
+  );
 }
