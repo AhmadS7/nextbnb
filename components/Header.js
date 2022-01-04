@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import React from 'react';
 
 export default function Header(props) {
   return (
     <div className="nav-container">
       <Link href="/">
         <a>
-          <img src="/img/tiger.png" alt="" />
+          <img src="/img/bnb.png" alt="" />
         </a>
       </Link>
 
@@ -15,16 +14,17 @@ export default function Header(props) {
         <ul>
           <li>
             <Link href="/register">
-              <a> Sign up</a>
+              <a>Sign up</a>
             </Link>
           </li>
           <li>
             <Link href="/login">
-              <a> Log in</a>
+              <a>Log in</a>
             </Link>
           </li>
         </ul>
       </nav>
+
       <style jsx>{`
         ul {
           margin: 0;
@@ -43,13 +43,19 @@ export default function Header(props) {
           color: #333;
         }
 
+        nav a {
+          padding: 1em 0.5em;
+        }
+
         .nav-container {
           border-bottom: 1px solid #eee;
           height: 50px;
         }
+
         img {
           float: left;
         }
+
         ul {
           float: right;
         }
