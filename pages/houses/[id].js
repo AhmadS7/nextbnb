@@ -8,21 +8,36 @@ export default function House(props) {
   return (
     <Layout
       content={
-        <div>
+        <div className="container">
           <Head>
             <title>{props.house.title}</title>
           </Head>
-          <img
-            src={props.house.picture}
-            width="100%"
-            alt="House Picture"
-            style={{ boxShadow: '0px 5px 5px rgba(0,0,0,0.4)' }}
-          />
-          <p>
-            {props.house.type} - {props.house.town}
-          </p>
+          <article>
+            <img
+              src={props.house.picture}
+              width="100%"
+              alt="House Picture"
+              style={{ boxShadow: '0px 5px 5px rgba(0,0,0,0.4)' }}
+            />
+            <p>
+              {props.house.type} - {props.house.town}
+            </p>
 
-          <p>{props.house.title}</p>
+            <p>{props.house.title}</p>
+          </article>
+          <aside></aside>
+          <style jsx>{`
+            .container {
+              display: grid;
+              grid-template-columns: 60% 40%;
+              grid-gap: 30px;
+            }
+            aside {
+              border: 1px solid #ccc;
+              padding: 20px;
+              box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+            }
+          `}</style>
         </div>
       }
     />
