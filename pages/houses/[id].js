@@ -26,7 +26,7 @@ export default function House(props) {
             <p>{props.house.title}</p>
           </article>
           <aside></aside>
-          <style jsx>{`
+          <style jsx="true">{`
             .container {
               display: grid;
               grid-template-columns: 60% 40%;
