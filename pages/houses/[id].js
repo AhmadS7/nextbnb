@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 import houses from '../../houses.js';
 import Layout from '../../components/Layout';
+import DateRangePicker from '../../components/DateRangePicker.js';
 
 export default function House(props) {
   return (
@@ -25,7 +26,10 @@ export default function House(props) {
 
             <p>{props.house.title}</p>
           </article>
-          <aside></aside>
+          <aside>
+            <h2>Choose a Date</h2>
+            <DateRangePicker />
+          </aside>
           <style jsx="true">{`
             .container {
               display: grid;
