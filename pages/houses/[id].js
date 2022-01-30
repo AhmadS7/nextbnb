@@ -76,16 +76,6 @@ export default function House(props) {
               padding: 20px;
               box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
             }
-            button {
-              background-color: rgb(255, 90, 95);
-              color: white;
-              font-size: 13px;
-              width: 100%;
-              border: none;
-              height: 40px;
-              border-radius: 4px;
-              cursor: pointer;
-            }
           `}</style>
         </div>
       }
