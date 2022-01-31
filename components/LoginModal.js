@@ -30,7 +30,7 @@ export default function LoginModal(props) {
             padding: '0rem .5rem',
             fontWeight: 'bold'
           }}
-          href="javascript:;"
+          href="#"
           onClick={() => props.showSignup()}
         >
           Sign Up
