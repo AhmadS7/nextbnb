@@ -1,7 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 export default function LoginModal(props) {
+  const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
+  const submit = async () => {
+    const response = await axios.post('/api/auth/login', {
+      email,
+      password
+    });
+    console.log(response);
+    if (response.data.status === 'error') {
+      alert(response.data.message);
+    }
+  };
+
   return (
     <>
       <h2>Login Modal</h2>
@@ -9,7 +23,7 @@ export default function LoginModal(props) {
         <form
           act
           onSubmit={(e) => {
-            alert('Sign up!');
+            submit();
             e.preventDefault();
           }}
         >
