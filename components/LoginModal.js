@@ -27,11 +27,17 @@ export default function LoginModal(props) {
             e.preventDefault();
           }}
         >
-          <input id="email" type="email" placeholder="Type Your Email" />
+          <input
+            id="email"
+            type="email"
+            placeholder="Type Your Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <input
             id="password"
             type="password"
             placeholder="Type Your Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <button>Log in</button>
         </form>
