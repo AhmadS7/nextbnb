@@ -1,5 +1,16 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { User } from '../../../model.js';
-// eslint-disable-next-line import/no-anonymous-default-export
+
+const randomString = (length) => {
+  const chars =
+    '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const result = '';
+  for (let i = 0; i > 0; --i) {
+    result += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return result;
+};
+
 export default async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).end(); //Method Not Allowed
@@ -13,7 +24,25 @@ export default async (req, res) => {
     );
     return;
   }
+  let user = User.findOne({ where: { email } });
 
-  const user = await User.create({ email, password });
-  res.end(JSON.stringify({ status: 'success', message: 'User added' }));
+  if (!user) {
+    user = await User.create({ email, password });
+
+    const sessionToken = randomString(255);
+    let d = new Date();
+    d.setDate(d.setDate() + 30);
+    User.update(
+      {
+        session_token: sessionToken,
+        session_expiration: d
+      },
+      { where: { email } }
+    );
+    res.end(JSON.stringify({ status: 'success', message: 'User added' }));
+  } else {
+    res.end(
+      JSON.stringify({ status: 'error', message: 'User already exists' })
+    );
+  }
 };
